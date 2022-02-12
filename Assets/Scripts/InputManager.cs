@@ -2,7 +2,7 @@
 
 public class InputManager : MonoBehaviour
 {
-    public static bool ShootInput, PauseInput;
+    public static bool ShootInput, MegaShootInput, PauseInput;
         
     private TankControls _tankControls;
     
@@ -13,10 +13,7 @@ public class InputManager : MonoBehaviour
         //Cursor.visible = false;
     }
 
-    private void LateUpdate()
-    {
-        ResetButtons();
-    }
+    private void LateUpdate() => ResetButtons();
 
     private void OnEnable()
     {
@@ -27,20 +24,19 @@ public class InputManager : MonoBehaviour
         _tankControls.Enable();
     }
 
-    private void OnDisable()
-    {
-        _tankControls.Disable();
-    }
+    private void OnDisable() => _tankControls.Disable();
 
     private void GetButtonsDown()
     {
         _tankControls.Actions.Shoot.started += i => ShootInput = true;
+        _tankControls.Actions.MegaShoot.started += i => MegaShootInput = true;
         _tankControls.Actions.Pause.started += i => PauseInput = true;
     }
 
     private static void ResetButtons()
     {
         ShootInput = false;
+        MegaShootInput = false;
         PauseInput = false;
     }
 }

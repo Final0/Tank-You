@@ -55,6 +55,15 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""MegaShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""dbda6ad7-37d0-460c-b6ac-1527e58535cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""4c392bc6-07a8-4d75-8840-ba0b264a12d1"",
@@ -65,61 +74,6 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""05330f14-3309-4b7f-ab1e-78c691e0e1a5"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""f06ca4b9-e210-4e00-ae05-403653db8069"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""7244d030-1ebe-4eee-bccb-9729a275a556"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""dd5f8c5c-8801-4542-9c17-efcbd9cdd46d"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""f2b23d83-8560-4edc-a5b4-c426b60cf064"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""3ec5b0d1-a1ca-4455-9601-5a16f8033158"",
@@ -133,19 +87,8 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fa694993-475a-4fc9-8368-b8303567fa21"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""972ffe0a-b8c2-4208-b804-720781d20b84"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -166,78 +109,23 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d9523e79-e5ee-485b-b2b4-84befa0dd7d2"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""d86863cb-823f-4dbb-bffd-40852a2effbd"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""b3f5a961-1b1b-4ba2-b236-228a8d7a7551"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""6f1fedf8-bc26-4fb4-b213-0281d9fda324"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""54919f2a-3831-4438-aaa8-a70f623b2476"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""ee19ac80-a9b0-46b3-9de4-938d916c33a7"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
                     ""id"": ""5d1e97ad-e1c1-4666-ba28-2d133bed2c55"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36a14ccf-a35f-4811-b270-5b9a06b5147e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MegaShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -251,6 +139,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         m_Actions_Movement = m_Actions.FindAction("Movement", throwIfNotFound: true);
         m_Actions_Rotation = m_Actions.FindAction("Rotation", throwIfNotFound: true);
         m_Actions_Shoot = m_Actions.FindAction("Shoot", throwIfNotFound: true);
+        m_Actions_MegaShoot = m_Actions.FindAction("MegaShoot", throwIfNotFound: true);
         m_Actions_Pause = m_Actions.FindAction("Pause", throwIfNotFound: true);
     }
 
@@ -314,6 +203,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_Movement;
     private readonly InputAction m_Actions_Rotation;
     private readonly InputAction m_Actions_Shoot;
+    private readonly InputAction m_Actions_MegaShoot;
     private readonly InputAction m_Actions_Pause;
     public struct ActionsActions
     {
@@ -322,6 +212,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Actions_Movement;
         public InputAction @Rotation => m_Wrapper.m_Actions_Rotation;
         public InputAction @Shoot => m_Wrapper.m_Actions_Shoot;
+        public InputAction @MegaShoot => m_Wrapper.m_Actions_MegaShoot;
         public InputAction @Pause => m_Wrapper.m_Actions_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
@@ -341,6 +232,9 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnShoot;
+                @MegaShoot.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMegaShoot;
+                @MegaShoot.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMegaShoot;
+                @MegaShoot.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMegaShoot;
                 @Pause.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnPause;
@@ -357,6 +251,9 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @MegaShoot.started += instance.OnMegaShoot;
+                @MegaShoot.performed += instance.OnMegaShoot;
+                @MegaShoot.canceled += instance.OnMegaShoot;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -369,6 +266,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnMegaShoot(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
 }

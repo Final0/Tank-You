@@ -2,55 +2,47 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private int _damage;
+    public int damage;
+
+    public float speed;
+
+    public bool isMegaBullet;
 
     private Rigidbody _rigidbody;
 
-    private Vector3 _startPos;
+    private const string TankTag = "Tank";
 
-    private void Awake()
+    private void Awake() => _rigidbody = GetComponent<Rigidbody>();
+
+    public void Initialize()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-
-        _startPos = transform.position;
-    }
-
-    public void Initialize(float speed, int damage)
-    {
-        _damage = damage;
-        
-        _rigidbody.velocity = transform.forward * speed;
+        if (!isMegaBullet)
+        {
+            var localDirection = transform.rotation.y * -transform.right;
+            
+            _rigidbody.velocity = localDirection.normalized * speed;
+        }
+        else
+        {
+            var localDirection = transform.rotation.z * transform.up;
+            
+            _rigidbody.velocity = localDirection.normalized * speed;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if (_isPlayer && other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag(TankTag) && other.transform != transform)
         {
-            EnemyManager enemy = other.gameObject.GetComponent<EnemyManager>();
+            var tankEnemy = other.gameObject.GetComponent<TankManager>();
             
-            enemy.TakeDamage(_damage);
-
-            enemy.Taunted = true;
-            enemy.currentState = EnemyManager.State.ChasePlayer;
+            tankEnemy.damageCount += damage;
             
             Destroy(gameObject);
         }
-        else if (_isPlayer && other.gameObject.CompareTag("Deviant"))
+        else if (other.transform != transform)
         {
-            DeviantManager enemy = other.gameObject.GetComponent<DeviantManager>();
-            
-            enemy.TakeDamage(_damage);
-
-            enemy._taunted = true;
-            enemy.currentState = DeviantManager.State.ChasePlayer;
-            
             Destroy(gameObject);
         }
-        else if(!_isPlayer && other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.GetComponent<Entity>().TakeDamage(_damage);
-            
-            Destroy(gameObject);
-        }*/
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class TankManager : MonoBehaviour
 {
+    [HideInInspector] public int damageCount;
+    
     [SerializeField] private float moveSpeed;
     
     [Header("Tank Components")]
@@ -15,14 +17,13 @@ public class TankManager : MonoBehaviour
     private Vector2 _movement, _rotation;
 
     private CharacterController _characterController;
+
+    private Weapon _weapon;
     
-    private int _damageCount;
-
-    public void TakeDamage(int damage) => _damageCount -= damage;
-
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _weapon = GetComponentInChildren<Weapon>();
     }
 
     private void Update()
@@ -31,15 +32,19 @@ public class TankManager : MonoBehaviour
         TankRotation();
     }
 
+    #region Tank Inputs
     [UsedImplicitly] private void OnMovement(InputValue value) => _movement = value.Get<Vector2>();
     [UsedImplicitly] private void OnRotation(InputValue value) => _rotation = value.Get<Vector2>();
+    [UsedImplicitly] private void OnShoot() => _weapon.Shoot();
+    [UsedImplicitly] private void OnMegaShoot() => _weapon.MegaShoot();
+    #endregion
     
     private void TankMovement()
     {
         if (_movement.magnitude > 1) _movement.Normalize();
 
         var movement = new Vector3(_movement.x, 0, _movement.y);
-        _characterController.Move(movement * moveSpeed * Time.deltaTime);
+        _characterController.Move(movement * (moveSpeed * Time.deltaTime));
         
         if(_movement == Vector2.zero) return;
         

@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "MegaShoot",
+                    "type": "Button",
+                    "id": "dbda6ad7-37d0-460c-b6ac-1527e58535cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "4c392bc6-07a8-4d75-8840-ba0b264a12d1",
@@ -43,61 +52,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "2D Vector",
-                    "id": "05330f14-3309-4b7f-ab1e-78c691e0e1a5",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "f06ca4b9-e210-4e00-ae05-403653db8069",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "7244d030-1ebe-4eee-bccb-9729a275a556",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "dd5f8c5c-8801-4542-9c17-efcbd9cdd46d",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "f2b23d83-8560-4edc-a5b4-c426b60cf064",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "",
                     "id": "3ec5b0d1-a1ca-4455-9601-5a16f8033158",
@@ -111,19 +65,8 @@
                 },
                 {
                     "name": "",
-                    "id": "fa694993-475a-4fc9-8368-b8303567fa21",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "972ffe0a-b8c2-4208-b804-720781d20b84",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -144,78 +87,23 @@
                 },
                 {
                     "name": "",
-                    "id": "d9523e79-e5ee-485b-b2b4-84befa0dd7d2",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "d86863cb-823f-4dbb-bffd-40852a2effbd",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "b3f5a961-1b1b-4ba2-b236-228a8d7a7551",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "6f1fedf8-bc26-4fb4-b213-0281d9fda324",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "54919f2a-3831-4438-aaa8-a70f623b2476",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "ee19ac80-a9b0-46b3-9de4-938d916c33a7",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
                     "id": "5d1e97ad-e1c1-4666-ba28-2d133bed2c55",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36a14ccf-a35f-4811-b270-5b9a06b5147e",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MegaShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
