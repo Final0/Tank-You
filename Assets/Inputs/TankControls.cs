@@ -37,6 +37,15 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Rotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""1fc1241a-8e69-4c42-879e-3ba7e1a9fd5b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""ff5c6271-f576-4c55-9f5b-7aa252bc3d90"",
@@ -165,6 +174,72 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""d86863cb-823f-4dbb-bffd-40852a2effbd"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b3f5a961-1b1b-4ba2-b236-228a8d7a7551"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""6f1fedf8-bc26-4fb4-b213-0281d9fda324"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""54919f2a-3831-4438-aaa8-a70f623b2476"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ee19ac80-a9b0-46b3-9de4-938d916c33a7"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d1e97ad-e1c1-4666-ba28-2d133bed2c55"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -174,6 +249,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         // Actions
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Movement = m_Actions.FindAction("Movement", throwIfNotFound: true);
+        m_Actions_Rotation = m_Actions.FindAction("Rotation", throwIfNotFound: true);
         m_Actions_Shoot = m_Actions.FindAction("Shoot", throwIfNotFound: true);
         m_Actions_Pause = m_Actions.FindAction("Pause", throwIfNotFound: true);
     }
@@ -236,6 +312,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Actions;
     private IActionsActions m_ActionsActionsCallbackInterface;
     private readonly InputAction m_Actions_Movement;
+    private readonly InputAction m_Actions_Rotation;
     private readonly InputAction m_Actions_Shoot;
     private readonly InputAction m_Actions_Pause;
     public struct ActionsActions
@@ -243,6 +320,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         private @TankControls m_Wrapper;
         public ActionsActions(@TankControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Actions_Movement;
+        public InputAction @Rotation => m_Wrapper.m_Actions_Rotation;
         public InputAction @Shoot => m_Wrapper.m_Actions_Shoot;
         public InputAction @Pause => m_Wrapper.m_Actions_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
@@ -257,6 +335,9 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMovement;
+                @Rotation.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnRotation;
+                @Rotation.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnRotation;
+                @Rotation.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnRotation;
                 @Shoot.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnShoot;
@@ -270,6 +351,9 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Rotation.started += instance.OnRotation;
+                @Rotation.performed += instance.OnRotation;
+                @Rotation.canceled += instance.OnRotation;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -283,6 +367,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
     public interface IActionsActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }

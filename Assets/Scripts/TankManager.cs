@@ -8,7 +8,7 @@ public class TankManager : MonoBehaviour
     
     [SerializeField] private float moveSpeed;
 
-    private Vector2 _movement;
+    private Vector2 _movement, _rotation;
 
     private CharacterController _characterController;
 
@@ -21,18 +21,23 @@ public class TankManager : MonoBehaviour
 
     private void Update()
     {
-        PlayerMovement();
+        TankMovement();
+        TankRotation();
     }
 
     [UsedImplicitly] private void OnMovement(InputValue value) => _movement = value.Get<Vector2>();
+    [UsedImplicitly] private void OnRotation(InputValue value) => _rotation = value.Get<Vector2>();
     
-    private void PlayerMovement()
+    private void TankMovement()
     {
         if (_movement.magnitude > 1) _movement.Normalize();
 
-        _characterController.Move(new Vector3(_movement.x, 0, _movement.y) * (moveSpeed * Time.deltaTime));
+        var movement = new Vector3(_movement.x, 0, _movement.y);
+        _characterController.Move(movement * moveSpeed * Time.deltaTime);
+    }
+
+    private void TankRotation()
+    {
         
-        /*if(_movement.magnitude != 0)
-            _weapon.transform.forward = new Vector3(_movement.x, 0, _movement.y);*/
     }
 }
