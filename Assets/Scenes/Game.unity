@@ -395,6 +395,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &169630782612550141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2537926313650272336, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+  m_PrefabInstance: {fileID: 2405521183256218029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1766294376649710822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4170618741208634699, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+  m_PrefabInstance: {fileID: 2405521183256218029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2405521183256218029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,6 +412,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 497163884849777816, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660438094403843542, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8573032916129740236, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -446,9 +464,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9057399311235854193, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: hull
+      value: 
+      objectReference: {fileID: 4578743945398406774}
+    - target: {fileID: 9057399311235854193, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: tracks
+      value: 
+      objectReference: {fileID: 6864199332783969725}
+    - target: {fileID: 9057399311235854193, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 169630782612550141}
+    - target: {fileID: 9057399311235854193, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: wheels
+      value: 
+      objectReference: {fileID: 1766294376649710822}
+    - target: {fileID: 9057399311235854193, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 9057399311235854198, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
       propertyPath: m_Name
       value: Tank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+--- !u!1 &4578743945398406774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2227267091576866779, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+  m_PrefabInstance: {fileID: 2405521183256218029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6864199332783969725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9088448945195441168, guid: a2d8a8d133571a4459bab0370afc77a4, type: 3}
+  m_PrefabInstance: {fileID: 2405521183256218029}
+  m_PrefabAsset: {fileID: 0}
