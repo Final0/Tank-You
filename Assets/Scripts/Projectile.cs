@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         {
             var tankEnemy = other.gameObject.GetComponent<TankManager>();
             
-            tankEnemy.damageCount += damage;
+            tankEnemy.TakeDamage(damage);
             
             Destroy(gameObject);
         }
