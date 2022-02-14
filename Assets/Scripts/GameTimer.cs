@@ -5,16 +5,15 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
 
-    [SerializeField] private TankManager tank1, tank2;
+    private static TankManager[] _tanks;
     
     private float _timer = 10.00f;
 
     private bool _gameFinished;
-
-    private void Update()
-    {
-        DecreaseGameTimer();
-    }
+    
+    private void Update() => DecreaseGameTimer();
+    
+    public static void GetTanks() => _tanks = FindObjectsOfType<TankManager>();
 
     private void DecreaseGameTimer()
     {
@@ -38,10 +37,12 @@ public class GameTimer : MonoBehaviour
         DeleteBullets();
     }
 
-    private void StopTanks()
+    private static void StopTanks()
     {
-        tank1.gameFinished = true;
-        //tank2.gameFinished = true;
+        foreach (var tank in _tanks)
+        {
+            tank.gameFinished = true;
+        }
     }
 
     private static void DeleteBullets()

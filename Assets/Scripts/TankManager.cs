@@ -8,8 +8,8 @@ public class TankManager : MonoBehaviour
 {
     [HideInInspector] public bool gameFinished;
     
-    [SerializeField] private Image bulletImage, megaBulletImage;
-    [SerializeField] private TMP_Text damageText;
+    [HideInInspector] public Image bulletImage, megaBulletImage;
+    [HideInInspector] public TMP_Text damageText;
     
     [Header("Tank Settings")]
     [SerializeField] private float moveSpeed;
@@ -38,9 +38,9 @@ public class TankManager : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _weapon = GetComponentInChildren<Weapon>();
-
-        InitializeBulletsImages();
     }
+
+    private void Start() => InitializeBulletsImages();
 
     private void Update()
     {
@@ -66,7 +66,7 @@ public class TankManager : MonoBehaviour
     [UsedImplicitly] 
     private void OnShoot()
     {
-        if (!_canShoot) return;
+        if (!_canShoot || gameFinished) return;
         
         _weapon.Shoot();
             
@@ -78,7 +78,7 @@ public class TankManager : MonoBehaviour
     [UsedImplicitly] 
     private void OnMegaShoot()
     {
-        if (!_canMegaShoot) return;
+        if (!_canMegaShoot || gameFinished) return;
         
         _weapon.MegaShoot();
             
