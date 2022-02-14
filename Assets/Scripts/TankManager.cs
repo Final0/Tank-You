@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TankManager : MonoBehaviour
 {
+    [HideInInspector] public bool gameFinished;
+    
     [SerializeField] private Image bulletImage, megaBulletImage;
     [SerializeField] private TMP_Text damageText;
     
@@ -42,6 +44,8 @@ public class TankManager : MonoBehaviour
 
     private void Update()
     {
+        if (gameFinished) return;
+        
         TankMovement();
         TankRotation();
         

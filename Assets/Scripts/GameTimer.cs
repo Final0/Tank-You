@@ -1,11 +1,11 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
+
+    [SerializeField] private TankManager tank1, tank2;
     
     private float _timer = 10.00f;
 
@@ -21,17 +21,36 @@ public class GameTimer : MonoBehaviour
         if (_gameFinished) return;
         
         _timer -= Time.deltaTime;
-        timerText.text = _timer.ToString("#.00");
+        timerText.text = _timer.ToString("##.00");
 
         GameFinished();
     }
 
     private void GameFinished()
     {
-        if (!(_timer <= 0f)) return;
+        if (_timer > 0f) return;
         
         _gameFinished = true;
         _timer = 0f;
         timerText.text = "0";
+
+        StopTanks();
+        DeleteBullets();
+    }
+
+    private void StopTanks()
+    {
+        tank1.gameFinished = true;
+        //tank2.gameFinished = true;
+    }
+
+    private static void DeleteBullets()
+    {
+        var bullets = FindObjectsOfType<Projectile>();
+
+        foreach (var bullet in bullets)
+        {
+            Destroy(bullet.gameObject);
+        }
     }
 }

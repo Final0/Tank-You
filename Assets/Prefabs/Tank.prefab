@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1579554995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579554996}
+  - component: {fileID: 1579554997}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1579554996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579554995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1653, z: 0.6592}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497163884849777816}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579554997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579554995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa45e3cc2d7454aa0dcdeff50ab94a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 677558604777060724, guid: db061018cb2a0c242aaae40293ce876b, type: 3}
+  megaBullet: {fileID: 4426083901704518308, guid: 5542a9111d0544942b6d218e5cfb4512, type: 3}
+  turret: {fileID: 2537926313650272336}
 --- !u!1 &2227267091576866779
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,10 +152,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2537926313650272336}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1579554996}
   m_Father: {fileID: 8573032916129740236}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,8 +387,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05077f7749bf7f44d9291796776c317a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageCount: 0
-  moveSpeed: 20
+  gameFinished: 0
+  bulletImage: {fileID: 0}
+  megaBulletImage: {fileID: 0}
+  damageText: {fileID: 0}
+  moveSpeed: 15
+  shootInterval: 0.4
+  megaShootInterval: 1.5
+  turret: {fileID: 2537926313650272336}
+  wheels: {fileID: 4170618741208634699}
+  tracks: {fileID: 9088448945195441168}
+  hull: {fileID: 2227267091576866779}
 --- !u!1 &9088448945195441168
 GameObject:
   m_ObjectHideFlags: 0

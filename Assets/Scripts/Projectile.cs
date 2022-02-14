@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            var localDirection = transform.rotation.z * transform.up;
+            var localDirection = transform.rotation.x * transform.up;
             
             _rigidbody.velocity = localDirection.normalized * speed;
         }
