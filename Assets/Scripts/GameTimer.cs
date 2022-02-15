@@ -17,7 +17,7 @@ public class GameTimer : MonoBehaviour
 
     private void DecreaseGameTimer()
     {
-        if (_gameFinished) return;
+        if (_gameFinished || Time.timeScale == 0f) return;
         
         _timer -= Time.deltaTime;
         timerText.text = _timer.ToString("##.00");

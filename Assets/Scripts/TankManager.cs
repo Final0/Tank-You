@@ -44,7 +44,7 @@ public class TankManager : MonoBehaviour
 
     private void Update()
     {
-        if (gameFinished) return;
+        if (gameFinished || Time.timeScale == 0f) return;
         
         TankMovement();
         TankRotation();
@@ -66,7 +66,7 @@ public class TankManager : MonoBehaviour
     [UsedImplicitly] 
     private void OnShoot()
     {
-        if (!_canShoot || gameFinished) return;
+        if (!_canShoot || gameFinished || Time.timeScale == 0f) return;
         
         _weapon.Shoot();
             
@@ -78,7 +78,7 @@ public class TankManager : MonoBehaviour
     [UsedImplicitly] 
     private void OnMegaShoot()
     {
-        if (!_canMegaShoot || gameFinished) return;
+        if (!_canMegaShoot || gameFinished || Time.timeScale == 0f) return;
         
         _weapon.MegaShoot();
             

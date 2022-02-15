@@ -32,9 +32,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(TankTag) && other.transform != transform)
+        if (other.gameObject.CompareTag(TankTag))
         {
-            var tankEnemy = other.gameObject.GetComponent<TankManager>();
+            var tankEnemy = other.gameObject.GetComponentInParent<TankManager>();
             
             tankEnemy.TakeDamage(damage);
             

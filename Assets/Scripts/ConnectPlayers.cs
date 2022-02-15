@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ConnectPlayers : MonoBehaviour
 {
-    public GameObject text;
+    public GameObject waitText;
     
     [SerializeField] private GameObject tank2Prefab;
     
@@ -26,7 +26,7 @@ public class ConnectPlayers : MonoBehaviour
 
     private void Awake()
     {
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
         _playerInputManager = GetComponent<PlayerInputManager>();
     }
 
@@ -57,7 +57,7 @@ public class ConnectPlayers : MonoBehaviour
         
         Time.timeScale = 1f;
             
-        //Text.SetActive(false);
+        waitText.SetActive(false);
     }
 
     private void LinkTankUI(Image bulletImage, Image megaBulletImage, TMP_Text damageText)

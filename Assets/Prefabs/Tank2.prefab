@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 414311065578817883}
   - component: {fileID: 414311065578817881}
   - component: {fileID: 414311065578817882}
+  - component: {fileID: 5860212774037454715}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +83,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5860212774037454715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414311065578817828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34648985, y: 0.28544924, z: 0.6359624}
+  m_Center: {x: -0.006078104, y: 0.14828037, z: 0.09416025}
 --- !u!1 &414311065776776418
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,9 +107,10 @@ GameObject:
   - component: {fileID: 414311065776776417}
   - component: {fileID: 414311065776776423}
   - component: {fileID: 414311065776776416}
+  - component: {fileID: 1250828696991383401}
   m_Layer: 0
   m_Name: Hull
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,6 +178,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1250828696991383401
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414311065776776418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.58054215, y: 0.2369943, z: 1.2138102}
+  m_Center: {x: 0, y: -0.09776685, z: -0.0065880134}
 --- !u!1 &414311065848848561
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +204,7 @@ GameObject:
   - component: {fileID: 414311065848848567}
   m_Layer: 0
   m_Name: Wheels
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +286,7 @@ GameObject:
   - component: {fileID: 414311066044979281}
   m_Layer: 0
   m_Name: Tank2
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,7 +393,7 @@ GameObject:
   - component: {fileID: 414311066942919184}
   m_Layer: 0
   m_Name: Tracks
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +473,7 @@ GameObject:
   - component: {fileID: 414311067366396189}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
