@@ -3,6 +3,7 @@
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bullet, megaBullet, turret;
+    [SerializeField] private bool tank1;
     
     public void Shoot()
     {
@@ -11,7 +12,7 @@ public class Weapon : MonoBehaviour
         
         var currentBullet = Instantiate(bullet, bulletPosition, bulletRotation);
         
-        currentBullet.GetComponent<Projectile>().Initialize();
+        currentBullet.GetComponent<Projectile>().Initialize(tank1);
     }
 
     public void MegaShoot()
@@ -21,6 +22,6 @@ public class Weapon : MonoBehaviour
         
         var currentBullet = Instantiate(megaBullet, bulletPosition, bulletRotation);
         
-        currentBullet.GetComponent<Projectile>().Initialize();
+        currentBullet.GetComponent<Projectile>().Initialize(tank1);
     }
 }

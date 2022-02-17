@@ -76,6 +76,17 @@
                 },
                 {
                     "name": "",
+                    "id": "73245129-ec2d-48b1-bb43-44883090ba2e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6c337abf-c1dd-45e3-98d7-f367775df3eb",
                     "path": "<Gamepad>/start",
                     "interactions": "",

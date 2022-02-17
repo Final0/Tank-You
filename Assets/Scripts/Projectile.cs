@@ -10,12 +10,20 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
-    private const string TankTag = "Tank";
+    private const string Tank1Tag = "Tank1", Tank2Tag = "Tank2";
+
+    private bool _tank1;
+
+    private TankManager _currentTank;
 
     private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
-    public void Initialize()
+    public void Initialize(bool tank1)
     {
+        _tank1 = tank1;
+        
+        _currentTank = GameObject.FindWithTag(tank1 ? Tank1Tag : Tank2Tag).GetComponentInParent<TankManager>();
+        
         if (!isMegaBullet)
         {
             var localDirection = transform.rotation.y * -transform.right;
@@ -32,15 +40,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(TankTag))
+        if (_tank1 && other.gameObject.CompareTag(Tank2Tag) || !_tank1 && other.gameObject.CompareTag(Tank1Tag))
         {
             var tankEnemy = other.gameObject.GetComponentInParent<TankManager>();
             
             tankEnemy.TakeDamage(damage);
+            tankEnemy.lastHit = true;
+
+            _currentTank.lastHit = false;
             
             Destroy(gameObject);
         }
-        else if (other.transform != transform)
+        else if (!other.gameObject.CompareTag(Tank1Tag) && !other.gameObject.CompareTag(Tank1Tag))
         {
             Destroy(gameObject);
         }

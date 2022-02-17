@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class TankManager : MonoBehaviour
 {
-    [HideInInspector] public bool gameFinished;
+    [HideInInspector] public int damageCount;
+
+    [HideInInspector] public bool gameFinished, lastHit;
     
     [HideInInspector] public Image bulletImage, megaBulletImage;
     [HideInInspector] public TMP_Text damageText;
@@ -21,9 +23,7 @@ public class TankManager : MonoBehaviour
     [SerializeField] private GameObject wheels;
     [SerializeField] private GameObject tracks;
     [SerializeField] private GameObject hull;
-    
-    private int _damageCount;
-    
+
     private Vector2 _movement, _rotation;
 
     private CharacterController _characterController;
@@ -38,9 +38,10 @@ public class TankManager : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _weapon = GetComponentInChildren<Weapon>();
-    }
 
-    private void Start() => InitializeBulletsImages();
+        _canShoot = true;
+        _canMegaShoot = true;
+    }
 
     private void Update()
     {
@@ -54,11 +55,11 @@ public class TankManager : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        _damageCount += damage;
-
-        damageText.text = _damageCount.ToString();
+        damageCount += damage;
+        
+        if(damageText != null) damageText.text = damageCount.ToString();
     }
-    
+
     #region Tank Inputs
     [UsedImplicitly] private void OnMovement(InputValue value) => _movement = value.Get<Vector2>();
     [UsedImplicitly] private void OnRotation(InputValue value) => _rotation = value.Get<Vector2>();
@@ -71,7 +72,9 @@ public class TankManager : MonoBehaviour
         _weapon.Shoot();
             
         _canShoot = false;
-        bulletImage.fillAmount = 0f;
+        
+        if(bulletImage != null) bulletImage.fillAmount = 0f;
+        
         _shootTimer = 0f;
     }
 
@@ -83,7 +86,9 @@ public class TankManager : MonoBehaviour
         _weapon.MegaShoot();
             
         _canMegaShoot = false;
-        megaBulletImage.fillAmount = 0f;
+        
+        if(megaBulletImage != null)megaBulletImage.fillAmount = 0f;
+        
         _megaShootTimer = 0f;
     }
     #endregion
@@ -121,7 +126,7 @@ public class TankManager : MonoBehaviour
         
         _shootTimer += Time.deltaTime;
         
-        bulletImage.fillAmount += 1 / shootInterval * Time.deltaTime;
+        if(bulletImage != null) bulletImage.fillAmount += 1 / shootInterval * Time.deltaTime;
 
         if (_shootTimer >= shootInterval) _canShoot = true;
     }
@@ -132,14 +137,8 @@ public class TankManager : MonoBehaviour
         
         _megaShootTimer += Time.deltaTime;
 
-        megaBulletImage.fillAmount += 1 / megaShootInterval * Time.deltaTime;
+        if(megaBulletImage != null) megaBulletImage.fillAmount += 1 / megaShootInterval * Time.deltaTime;
 
         if (_megaShootTimer >= megaShootInterval) _canMegaShoot = true;
-    }
-
-    private void InitializeBulletsImages()
-    {
-        bulletImage.fillAmount = 0f;
-        megaBulletImage.fillAmount = 0f;
     }
 }
