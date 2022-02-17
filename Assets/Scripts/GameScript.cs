@@ -1,9 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameScript : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject crown1Image, crown2Image;

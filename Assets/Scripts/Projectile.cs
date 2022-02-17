@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,6 +8,8 @@ public class Projectile : MonoBehaviour
     public float speed;
 
     public bool isMegaBullet;
+
+    [SerializeField] private GameObject explosion;
 
     private Rigidbody _rigidbody;
 
@@ -56,4 +59,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnDestroy() => Instantiate(explosion, transform.position, Quaternion.identity);
 }

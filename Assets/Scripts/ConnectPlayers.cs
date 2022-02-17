@@ -53,7 +53,7 @@ public class ConnectPlayers : MonoBehaviour
         
         if (_index != _playerInputManager.maxPlayerCount) return;
         
-        GameManager.GetTanks();
+        GameScript.GetTanks();
         
         Time.timeScale = 1f;
             

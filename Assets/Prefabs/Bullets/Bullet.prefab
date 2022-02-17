@@ -129,3 +129,4 @@ MonoBehaviour:
   damage: 1
   speed: 60
   isMegaBullet: 0
+  explosion: {fileID: 6333575012513973348, guid: 83bbee47f87e9d647ae3a794e0e8d78d, type: 3}
