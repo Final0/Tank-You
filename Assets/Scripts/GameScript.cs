@@ -5,6 +5,7 @@ public class GameScript : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject crown1Image, crown2Image;
+    [SerializeField] private GameObject mainGame, cinematic;
 
     private static TankManager[] _tanks;
     
@@ -44,6 +45,8 @@ public class GameScript : MonoBehaviour
 
         StopTanks();
         DeleteBullets();
+        
+        Invoke(nameof(ShowCinematic), 1f);
     }
 
     private static void StopTanks()
@@ -68,6 +71,12 @@ public class GameScript : MonoBehaviour
     {
         crown1Image.SetActive(false);
         crown2Image.SetActive(false);
+    }
+
+    private void ShowCinematic()
+    {
+        mainGame.SetActive(false);
+        cinematic.SetActive(true);
     }
 
     private void DisplayCrownOnWinner()

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -30,6 +29,22 @@ public class Projectile : MonoBehaviour
         if (!isMegaBullet)
         {
             var localDirection = transform.rotation.y * -transform.right;
+
+            _rigidbody.velocity = localDirection.normalized * speed;
+        }
+        else
+        {
+            var localDirection = transform.rotation.x * transform.up;
+            
+            _rigidbody.velocity = localDirection.normalized * speed;
+        }
+    }
+    
+    public void Initialize()
+    {
+        if (!isMegaBullet)
+        {
+            var localDirection = transform.rotation.y * -transform.right;
             
             _rigidbody.velocity = localDirection.normalized * speed;
         }
@@ -52,13 +67,13 @@ public class Projectile : MonoBehaviour
 
             _currentTank.lastHit = false;
             
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else if (!other.gameObject.CompareTag(Tank1Tag) && !other.gameObject.CompareTag(Tank1Tag))
+        else if (!other.gameObject.CompareTag(Tank1Tag) && !other.gameObject.CompareTag(Tank2Tag))
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
-
-    private void OnDestroy() => Instantiate(explosion, transform.position, Quaternion.identity);
 }
